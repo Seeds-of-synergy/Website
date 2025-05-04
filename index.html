@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Seeds of Synergy: Inspiring collaboration and innovation for sustainability, community growth, and technological advancement.">
+    <title>Seeds of Synergy - Growing Together</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Spectral:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* "Lord of the Rings" inspired styles */
+        body {
+            font-family: 'Spectral', serif;
+            background-color: #f2f0e1; /* Light parchment */
+            color: #332d21; /* Dark brown */
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Cinzel', serif;
+            color: #594d3b; /* Earthy brown */
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+        }
+
+        /* Pillar Styles */
+        .pillar {
+            position: relative;
+            background-color: #d6c8a7; /* Light earthy brown */
+            /* Rounded corners only at the top if content is shown below, or all around if not */
+            border-radius: 8px; /* Rounded corners all around now */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            /* Removed overflow: hidden; as garden is gone */
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Added shadow transition */
+            padding-bottom: 1rem; /* Add some padding at the bottom */
+        }
+
+        .pillar.active {
+            transform: translateY(-10px); /* Slightly raise the pillar */
+            box-shadow: 0 10px 15px rgba(0,0,0,0.15); /* Increase shadow when active */
+        }
+
+        .pillar-top {
+            padding: 2rem 1rem 1rem 1rem; /* Adjusted padding */
+        }
+
+        .pillar-title {
+            font-size: 1.5rem;
+            color: #594d3b;
+            margin-bottom: 1rem;
+        }
+
+        /* **** REMOVED .pillar-garden style **** */
+
+        /* Navigation */
+        header {
+            background-color: #f2f0e1; /* Match body background */
+        }
+
+        nav a {
+            color: #594d3b; /* Earthy brown for nav links */
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #85754d; /* Lighter brown on hover */
+        }
+
+        /* Hero Section */
+        #hero {
+            background-color: #224B0C; /* Fallback color - a dark earthy green */
+            padding-top: 8rem;
+            padding-bottom: 8rem;
+            /* Root system background effect */
+            background-image:
+                radial-gradient(circle at 50% 100%, rgba(8, 51, 12, 0.8), transparent 40%),
+                linear-gradient(to bottom, transparent 60%, #4A3A24 70%, transparent 80%),
+                linear-gradient(45deg, transparent 40%, #4A3A24 50%, transparent 60%),
+                linear-gradient(135deg, transparent 40%, #4A3A24 50%, transparent 60%);
+            background-size: cover, 8px 8px, 12px 12px, 12px 12px;
+            background-position: center bottom, 0 0, 0 0, 0 0;
+            background-repeat: no-repeat, repeat, repeat, repeat;
+        }
+
+        #hero h1 {
+            color: #f2f0e1; /* Light text */
+            text-shadow: 2px 2px 4px #332d21; /* Dark shadow */
+        }
+
+        #hero p {
+            color: #d6c8a7; /* Light earthy brown */
+            text-shadow: 1px 1px 2px #332d21;
+        }
+
+        #hero a {
+            background-color: #85754d; /* Rich, earthy brown */
+            color: #f2f0e1;
+            transition: background-color 0.3s ease;
+        }
+
+        #hero a:hover {
+            background-color: #a6936c; /* Lighter brown on hover */
+        }
+
+        /* About Section */
+        #about {
+            background-color: #f2f0e1; /* Match body background */
+        }
+
+        #about blockquote {
+            border-left-color: #85754d; /* Rich brown border */
+        }
+
+        /* Podcast Section */
+        #podcast {
+            background-color: #d6c8a7; /* Light earthy brown */
+        }
+
+        #podcast a {
+            /* Specific styling for podcast buttons if needed */
+             transition: background-color 0.3s ease;
+        }
+        #podcast a:hover {
+             /* Specific hover styling */
+        }
+         /* Style for the main green button */
+        #podcast a.view-episodes-button {
+            background-color: #224B0C; /* Dark green */
+            color: #f2f0e1;
+        }
+        #podcast a.view-episodes-button:hover {
+            background-color: #3a6b2f; /* Slightly lighter green */
+        }
+         /* Style for the grey platform buttons */
+         #podcast a.platform-button {
+            background-color: #e5e7eb; /* gray-200 */
+            color: #374151; /* gray-700 */
+            font-weight: 600; /* font-semibold */
+         }
+         #podcast a.platform-button:hover {
+             background-color: #d1d5db; /* gray-300 */
+         }
+
+
+        /* Contact Section */
+        #contact {
+            background-color: #e6e1d1; /* Slightly different parchment */
+        }
+
+        #contact a.contact-button { /* Target specific contact buttons */
+            transition: background-color 0.3s ease;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #332d21; /* Dark brown */
+            color: #d6c8a7; /* Light earthy text */
+        }
+
+        footer a {
+            color: #d6c8a7;
+        }
+
+        footer a:hover {
+            color: #f2f0e1; /* Lighter text on hover */
+        }
+
+        /* Logo Text Styles */
+        .logo-text {
+            font-family: 'Cinzel', serif;
+            color: #594d3b;
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: inline-block; /* Ensure it aligns with image if image fails */
+            vertical-align: middle;
+        }
+
+        .logo-text .accent {
+            color: #85754d; /* A slightly lighter brown for accent */
+        }
+
+        /* Pillar Content Styles */
+        .pillar-content {
+            padding: 1rem;
+            /* background-color: rgba(214, 200, 167, 0.9); Semi-transparent background */
+            background-color: #f2f0e1; /* Solid background matching body */
+            border-radius: 0 0 8px 8px; /* Rounded bottom corners */
+            display: none; /* Initially hidden */
+            /* margin-top: -10px; Remove overlap */
+            position: relative;
+            z-index: 10;
+            color: #332d21; /* Ensure text is readable */
+            margin-top: 1rem; /* Add space between top and content */
+             box-shadow: inset 0 2px 4px rgba(0,0,0,0.06); /* Optional inner shadow */
+        }
+
+        .pillar.active .pillar-content {
+            display: block;
+        }
+
+        /* Contact Icons */
+        .contact-icon {
+            margin-right: 0.5rem; /* Space between icon and text */
+            display: inline-block; /* Align items horizontally */
+            vertical-align: middle; /* Align items vertically */
+        }
+
+        /* Icon Colors */
+        .contact-email { color: white; }
+        .contact-linkedin { color: white; }
+        .contact-instagram { color: white; }
+
+        /* Contact Button Styles */
+        .contact-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600; /* Tailwind equivalent for font-semibold */
+            padding: 0.75rem 2rem; /* py-3 px-8 */
+            border-radius: 0.5rem; /* rounded-lg */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+            transition: background-color 0.3s ease-in-out;
+            color: white; /* Ensure text is white */
+        }
+        .contact-button.bg-yellow-500 { background-color: #f59e0b; } /* Tailwind yellow-500 */
+        .contact-button.bg-yellow-500:hover { background-color: #d97706; } /* Tailwind yellow-600 */
+        .contact-button.bg-blue-500 { background-color: #3b82f6; } /* Tailwind blue-500 */
+        .contact-button.bg-blue-500:hover { background-color: #2563eb; } /* Tailwind blue-600 */
+        .contact-button.bg-purple-500 { background-color: #a855f7; } /* Tailwind purple-500 */
+        .contact-button.bg-purple-500:hover { background-color: #9333ea; } /* Tailwind purple-600 */
+
+        /* Form Styles */
+        #connect-form {
+             background-color: #e6e1d1; /* Slightly different parchment, matches #contact */
+             padding: 3rem 1.5rem; /* py-12 px-6 */
+        }
+        #connect-form h2 {
+             color: #332d21; /* Darker heading */
+        }
+        #connect-form label {
+            display: block;
+            margin-bottom: 0.5rem; /* mb-2 */
+            color: #594d3b; /* Earthy brown */
+            font-weight: 600; /* font-semibold */
+        }
+        #connect-form input[type="text"],
+        #connect-form select {
+            width: 100%;
+            padding: 0.75rem 1rem; /* py-3 px-4 */
+            border: 1px solid #d6c8a7; /* Light earthy border */
+            border-radius: 0.375rem; /* rounded-md */
+            background-color: #f2f0e1; /* Light parchment background */
+            color: #332d21; /* Dark brown text */
+            margin-bottom: 1.5rem; /* mb-6 */
+            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+        }
+        #connect-form input[type="text"]:focus,
+        #connect-form select:focus {
+            outline: none;
+            border-color: #85754d; /* Richer brown border on focus */
+            box-shadow: 0 0 0 3px rgba(133, 117, 77, 0.3); /* Focus ring */
+        }
+        #connect-form button[type="submit"] {
+            background-color: #85754d; /* Rich, earthy brown */
+            color: #f2f0e1; /* Light text */
+            font-weight: 600; /* font-semibold */
+            padding: 0.75rem 2rem; /* py-3 px-8 */
+            border-radius: 0.5rem; /* rounded-lg */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+        #connect-form button[type="submit"]:hover {
+            background-color: #a6936c; /* Lighter brown on hover */
+        }
+
+
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+    <header class="shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2"> <img src="Logo.png" alt="Seeds of Synergy Logo" class="logo-img"
+                    onerror="this.onerror=null; this.style.display='none';">
+                <span class="logo-text">Seeds<span class="accent"> of</span>Synergy</span>
+            </a>
+            <div class="space-x-2 md:space-x-4">
+                <a href="#about" class="hover:text-green-700 px-3 py-2 rounded-md text-sm font-medium">About</a>
+                <a href="#podcast" class="hover:text-green-700 px-3 py-2 rounded-md text-sm font-medium">Podcasts</a>
+                <a href="#contact" class="hover:text-green-700 px-3 py-2 rounded-md text-sm font-medium">Connect</a> <a href="#connect-form" class="hover:text-green-700 px-3 py-2 rounded-md text-sm font-medium">Contact</a> </div>
+        </nav>
+    </header>
+
+    <section id="hero" class="py-20 md:py-32">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">
+                 Cultivating Connection in the <span class="text-yellow-700">Garden of the Collective Mind</span>
+            </h1>
+            <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto">
+                "Do not judge each day by the harvest you reap, but by the seeds that you plant"<br>
+                - Robert Louis Stevenson
+            </p>
+            <a href="#about"
+                class="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-lg shadow-md transition duration-300 ease-in-out">
+                Learn More
+            </a>
+        </div>
+    </section>
+
+    <section id="about" class="py-16 md:py-24">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-8 md:mb-0 md:pr-10">
+                <img src="Logo.png"
+					 alt="Seeds of Synergy Logo"
+					 class="rounded-lg shadow-lg w-full h-auto object-contain"
+					 onerror="this.onerror=null; this.src='https://placehold.co/600x400/EFEFEF/AAAAAA?text=Logo+Not+Found';">
+            </div>
+            <div class="md:w-1/2">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">What is Seeds of Synergy?</h2>
+                <p class="mb-4 leading-relaxed">
+                    Seeds of Synergy is rooted in the belief that the whole is greater than the sum of
+					its parts. By embracing our authentic selves and pursuing purpose-driven lives, we
+					ignite the change we wish to see in the world. Recognizing our shared humanity and
+					uniting diverse perspectives, we cultivate communities that transcend borders, foster
+					inclusivity, and harmonize social, environmental, and technological progress.
+                </p>
+                <blockquote class="border-l-4 pl-4 italic text-gray-700 mb-4">
+                    <h3 class="text-xl font-semibold not-italic mb-2">Our Vision</h3>
+                    <p>
+                        "Planting seeds of synergy in the collective garden that empower individuals to example change
+                        through environmental stewardship, social connection and technological collaboration."
+                    </p>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <section id="pillars" class="py-16 md:py-24">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Our Three Pillars</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="pillar" onclick="togglePillar(this)">
+                    <div class="pillar-top">
+                        <i class="fas fa-users fa-2x text-blue-600 mb-4"></i>
+                        <h3 class="pillar-title">Social</h3>
+                    </div>
+                    <div class="pillar-content">
+                        <p>
+                            Social synergy focuses on unification through education, experience and the need for meaningful connection.
+							Through a deep understanding and awareness of self, individuals attract others with shared values and
+							combine their unique talents, cultures and perspectives to form community.
+                        </p>
+                    </div>
+                </div>
+                <div class="pillar" onclick="togglePillar(this)">
+                    <div class="pillar-top">
+                         <i class="fas fa-leaf fa-2x text-green-600 mb-4"></i>
+                        <h3 class="pillar-title">Environmental</h3>
+                    </div>
+                     <div class="pillar-content">
+                        <p>
+                            Environmental synergy is the appreciation of our interconnectedness and shifting perspective from extraction
+							to co-creation. Exemplifying a holistic approach, where ecosystems thrive, resources are managed sustainably,
+							and the well-being of the planet is prioritized.
+                        </p>
+                    </div>
+                </div>
+                <div class="pillar" onclick="togglePillar(this)">
+                    <div class="pillar-top">
+                        <i class="fas fa-cogs fa-2x text-purple-600 mb-4"></i>
+                        <h3 class="pillar-title">Technological</h3>
+                    </div>
+                     <div class="pillar-content">
+                        <p>
+                            Technological synergy is the convergence of technologies and human ingenuity to reimagine solutions to
+							pressing systematic challenges. Embracing emerging technologies and shared networks, we strive to engineer
+							a future where everyone participates in the exchange of innovation, knowledge, and collaboration.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="podcast" class="py-16 md:py-24">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Listen to Our Podcast</h2>
+            <p class="mb-10 max-w-xl mx-auto">
+                Discover the Seeds of Synergy podcast — a space for inspiring conversations on sustainability, community
+                synergy, and innovation. Available on Spotify and YouTube. </p>
+            <div class="flex flex-wrap justify-center items-center gap-6 md:gap-8">
+                 <a href="https://open.spotify.com/show/1PbJtNOCET14hCzsQJyVXu" target="_blank" rel="noopener noreferrer"
+                    class="platform-button inline-flex items-center py-3 px-6 rounded-lg shadow-sm transition duration-300">
+                    <i class="fab fa-spotify fa-lg mr-3 text-[#1DB954]"></i> Spotify
+                </a>
+				<a href="https://podcasts.apple.com/us/podcast/seeds-of-synergy/id1812273283" target="_blank" rel="noopener noreferrer"
+					class="platform-button inline-flex items-center py-3 px-6 rounded-lg shadow-sm transition duration-300">
+					<i class="fab fa-apple fa-lg mr-3 text-black"></i> Apple Podcasts
+				</a>
+                <a href="https://www.youtube.com/@SeedsofSynergy" target="_blank" rel="noopener noreferrer"
+                    class="platform-button inline-flex items-center py-3 px-6 rounded-lg shadow-sm transition duration-300">
+                    <i class="fab fa-youtube fa-lg mr-3 text-[#FF0000]"></i> YouTube
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-16 md:py-24">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Connect With Us</h2> <p class="mb-8 max-w-xl mx-auto">
+                Follow our journey and join the conversation on social media, or reach out directly via email.
+            </p>
+            <div class="flex flex-wrap justify-center space-x-4 sm:space-x-6">
+                <a href="mailto:podcasts.seedsofsynergy@gmail.com"
+                    class="contact-button bg-yellow-500 hover:bg-yellow-600 mb-2 sm:mb-0">
+                    <i class="fas fa-envelope contact-icon contact-email"></i> Email
+                </a>
+                <a href="https://www.linkedin.com/company/seeds-of-synergy/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
+                    class="contact-button bg-blue-500 hover:bg-blue-600 mb-2 sm:mb-0">
+                    <i class="fab fa-linkedin fa-lg contact-icon contact-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://www.instagram.com/seedsofsynergy/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
+                    class="contact-button bg-purple-500 hover:bg-purple-600 mb-2 sm:mb-0">
+                    <i class="fab fa-instagram fa-lg contact-icon contact-instagram"></i> Instagram
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="connect-form" class="py-16 md:py-24">
+        <div class="container mx-auto px-6 max-w-3xl"> <h2 class="text-3xl md:text-4xl font-bold text-center mb-10">Send Us a Message</h2>
+            <form id="contactForm" action="https://formspree.io/f/movdezjb" method="POST">
+			<p id="formMessage" class="text-center text-green-700 font-semibold mt-6 hidden">Seed planted 🌱</p>
+                <div>
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div>
+                    <label for="reason">Reason for Contacting:</label>
+                    <select id="reason" name="reason" required>
+                        <option value="" disabled selected>-- Select a reason --</option>
+                        <option value="Become a podcast guest">Become a podcast guest</option>
+                        <option value="Podcast idea suggestion">Podcast idea suggestion</option>
+                        <option value="Project collaboration">Project collaboration</option>
+                        <option value="Meet with host">Meet with host</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                 <div>
+                    <label for="message">Your Message (Optional):</label>
+                    <textarea id="message" name="message" rows="4" class="w-full p-3 border border-d6c8a7 rounded-md bg-f2f0e1 text-332d21 mb-6 shadow-inner focus:outline-none focus:border-85754d focus:ring-3 focus:ring-opacity-30 focus:ring-yellow-700" style="color: #332d21; background-color: #f2f0e1; border-color: #d6c8a7;"></textarea>
+                 </div>
+                <div class="text-center"> <button type="submit">Send Message</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer class="py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>© <span id="current-year"></span> Seeds of Synergy. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Set the current year in the footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Toggle active state for pillars
+        function togglePillar(clickedPillar) {
+            const pillars = document.querySelectorAll('.pillar');
+            const content = clickedPillar.querySelector('.pillar-content');
+
+            // If the clicked pillar is already active, deactivate it
+            if (clickedPillar.classList.contains('active')) {
+                clickedPillar.classList.remove('active');
+                if (content) content.style.display = 'none'; // Hide content
+            } else {
+                // Deactivate all other pillars
+                pillars.forEach(pillar => {
+                    pillar.classList.remove('active');
+                    const otherContent = pillar.querySelector('.pillar-content');
+                    if (otherContent) otherContent.style.display = 'none'; // Hide other content
+                });
+                // Activate the clicked pillar
+                clickedPillar.classList.add('active');
+                 if (content) content.style.display = 'block'; // Show content
+            }
+        }
+
+        // Ensure pillar content is hidden initially on page load
+        document.addEventListener('DOMContentLoaded', () => {
+             document.querySelectorAll('.pillar-content').forEach(content => {
+                 content.style.display = 'none';
+             });
+        });
+    </script>
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			const form = document.getElementById("contactForm");
+			const message = document.getElementById("formMessage");
+
+			form.addEventListener("submit", function (e) {
+				e.preventDefault(); // Prevent default submission
+      
+				const formData = new FormData(form);
+      
+				fetch(form.action, {
+					method: "POST",
+					body: formData,
+					headers: {
+						Accept: "application/json"
+					}
+				}).then(response => {
+					if (response.ok) {
+						form.reset(); // Clear form fields
+						message.classList.remove("hidden");
+						message.textContent = "Seed planted 🌱";
+					} else {
+						message.classList.remove("hidden");
+						message.textContent = "Something went wrong. Please try again.";
+						message.classList.add("text-red-600");
+					}
+				}).catch(error => {
+					message.classList.remove("hidden");
+					message.textContent = "Submission failed. Please try again.";
+					message.classList.add("text-red-600");
+				});
+			});
+		});
+	</script>
+</body>
+</html>
